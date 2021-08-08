@@ -1,0 +1,21 @@
+name: 'NextJs-tsc-tdd'
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  Build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Setup node v16.x
+        uses: actions/setup-node@1
+        with:
+          node-version: '16'
+      
+      - name: Test Application
+        run: npm run test
